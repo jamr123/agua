@@ -11,7 +11,9 @@
           </div>
           <div class="sidebar-brand-text mx-3">jamrelectronics</div>
         </a>
-
+            <center>
+                {{nombre}}
+            </center>
         <hr class="sidebar-divider my-0" />
         <li class="nav-item">
           <a v-on:click="router('dispositivos')" id="sidebarToggleTop" class="nav-link" href="#">
