@@ -31,7 +31,7 @@ api.get('/socket',socket.getSocket);
 api.post('/subscribe',subscribe.subscribe );
 api.delete('/subscribe',subscribe.deleteNot );
 
-api.post('/dps', dps.login);
+api.post('/dps', dps.dpslog);
 
 
 module.exports = api
