@@ -1,5 +1,5 @@
 {
-  "name": "proyecto_web",
+  "name": "agua",
   "version": "1.0.0",
   "description": "aplicacion ",
   "main": "main.js",
@@ -14,7 +14,6 @@
   "dependencies": {
     "axios": "^0.17.1",
     "bcrypt-nodejs": "0.0.3",
-    "conekta": "^3.6.1",
     "cors": "^2.8.5",
     "datatables.net-dt": "^1.10.20",
     "express": "^4.16.2",

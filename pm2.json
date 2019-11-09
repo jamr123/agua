@@ -1,7 +1,7 @@
 {
 
 "apps": [{
-   "name"  : "domotica",
+   "name"  : "agua",
    "script" : "server/main.js",
    "watch"  : "server/main.js",
    "watch_options":{
