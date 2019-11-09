@@ -198,6 +198,10 @@
           <div class="container-fluid">
             <!-- CONTENIDO -->
 
+          <app-dispositivos v-if="lateral.dispositivos"></app-dispositivos>
+          <app-ventas v-if="lateral.ventas"></app-ventas>
+          <app-variables v-if="lateral.variables"></app-variables>
+          <app-alertas v-if="lateral.alertas"></app-alertas>
 
           </div>
          
@@ -283,6 +287,12 @@
 /*controladores*/
 
 import cliente from"../controladores/clienteAgua";
+import dispositivos from "";
+import ventas from "";
+import variables from "";
+import alertas from "";
+
+
 export default {
   name: "ClienteAgua",
   data() {
@@ -351,8 +361,10 @@ export default {
   
   },
   components: {
-   
-  
+   "app-dispositivos":dispositivos,
+   "app-ventas":ventas,
+   "app-variables":variables,
+   "app-alertas":alertas
   }
 
 
