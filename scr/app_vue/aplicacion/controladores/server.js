@@ -1,5 +1,5 @@
 import axios from "axios"
-var DOMINIO="domotica.jamrelectronics.com.mx"///configuracion de dominio
+var DOMINIO="agua.jamrelectronics.com.mx"///configuracion de dominio
 //var DOMINIO = "192.168.1.65:1111" ///configuracion de dominio
 
 var Api_url = "https://" + DOMINIO + "/api_v_01/";
