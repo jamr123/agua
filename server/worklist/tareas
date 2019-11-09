@@ -1,0 +1,18 @@
+
+
+//////////lista////////
+
+/////// administrador//////// 2-enero-2019
+crear Usuarios
+elimininar Usuarios
+mandar email Usuarios
+
+/////ingenieria////////// 3-enero-2019 a 5-enero-2019
+interfaz agregar dispositivo
+interfaz propiedades de dispositivo
+backend y base de datos
+backend enlace de dispositivo
+
+/////////replica 360 eco/////5-enero-2019 a 7-enero-2019
+
+db.createUser({ user: "myTester", pwd: "xyz123", roles: [ { role: "readWrite", db: "jamr" } ]}
