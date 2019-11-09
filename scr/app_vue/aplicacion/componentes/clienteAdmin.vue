@@ -16,14 +16,14 @@
         <li class="nav-item">
           <a v-on:click="router('dispositivos')" id="sidebarToggleTop" class="nav-link" href="#">
             <i class="fas fa-eye"></i>
-            <span>Dispotivos</span>
+            <span>Dispositivos</span>
           </a>
         </li>
 
         <hr class="sidebar-divider" />
         <div class="sidebar-heading">Estadisticas</div>      
         <li class="nav-item">
-          <a v-on:click="router('estadisticas')" id="sidebarToggleTop" class="nav-link" href="#">
+          <a v-on:click="router('ventas')" id="sidebarToggleTop" class="nav-link" href="#">
             <i class="fas fa-home"></i>
             <span>Ventas</span>
           </a>
@@ -31,12 +31,19 @@
 
       
         <hr class="sidebar-divider" />
-        <div class="sidebar-heading">Configuraciones</div>
+        <div class="sidebar-heading">Config</div>
         <li class="nav-item">
-          <a v-on:click="router('confiduraciones')" id="sidebarToggleTop" class="nav-link" href="#">
+
+          <a v-on:click="router('variables')" id="sidebarToggleTop" class="nav-link" href="#">
             <i class="fa fa-cloud-moon"></i>
-            <span>Escenas</span>
+            <span>Variables</span>
           </a>
+
+          <a v-on:click="router('alertas')" id="sidebarToggleTop" class="nav-link" href="#">
+            <i class="fa fa-cloud-moon"></i>
+            <span>Alertas</span>
+          </a>
+
         </li>
 
 
@@ -272,27 +279,53 @@ export default {
      nombre: "",
      lateral:{
       dispositivos:true,
-      estadisticas:false,
-      configuraciones:false,
+      ventas:false,
+      variables:false,
+      alertas:false
      }
 
     };
   },
    methods: {
      router: function(ruta) {
-      this.sideMenu = {
-        monitor: false,
-        areas: false,
-        control: false,
-        dispositivos: false
-      };
-      this.switchMonitor = false;
-      this.sideMenu[ruta] = true;
+      this.lateral={
+      dispositivos:true,
+      ventas:false,
+      variables:false,
+      alertas:false
+     }
+      this.lateral[ruta] = true;
     }
   },
   computed: {},
   mounted: function() {
+  if (navigator.onLine) {
+      if (localStorage.getItem("session")) {
+        cliente
+          .dataUsuario({
+            token: localStorage.getItem("session"),
+            data: "admin"
+          })
+          .then(res => {
+            this.nombre = res.nombre;
+          })
+          .catch(e => {
+            if (e.estado == "fali") {
+              this.salir();
+            }
+          });
+      }
+    } else {
+      if (localStorage.getItem("nombre")) {
+        this.nombre = localStorage.getItem("nombre");
+      }
+    }
 
+    if (sessionStorage.getItem("reload")) {
+    } else {
+      sessionStorage.setItem("reload", "reload");
+      location.reload();
+    }
   },
   created: function() {
   
