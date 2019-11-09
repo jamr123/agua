@@ -8,6 +8,7 @@ const ubi=require('../controladores/ubidots');
 const subscribe=require('../controladores/pushNoti');
 const alertas=require('../controladores/alertas');
 const socket=require('../controladores/socketio');
+const dps=require('../controladores/dps');
 ///////rutas--login//////
 api.post('/login', controladorlogin.login);
 api.post('/session', controladorlogin.session);
@@ -29,6 +30,9 @@ api.get('/socket',socket.getSocket);
 
 api.post('/subscribe',subscribe.subscribe );
 api.delete('/subscribe',subscribe.deleteNot );
+
+api.post('/dps', dps.login);
+
 
 module.exports = api
 
