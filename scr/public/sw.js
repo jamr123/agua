@@ -1,19 +1,19 @@
 
 var CACHE_NAME = 'cache-v1';
 var urlsToCache = [
-  'https://domotica.jamrelectronics.com.mx/',
-  'https://domotica.jamrelectronics.com.mx/vendor/fontawesome-free/css/all.min.css',
-  'https://domotica.jamrelectronics.com.mx/css/sb-admin-2.css',
-  'https://domotica.jamrelectronics.com.mx/js/app.js',
-  'https://domotica.jamrelectronics.com.mx/js/bundle.js',
-  'https://domotica.jamrelectronics.com.mx/vendor/jquery/jquery.min.js',
-  'https://domotica.jamrelectronics.com.mx/vendor/bootstrap/js/bootstrap.bundle.min.js',
-  'https://domotica.jamrelectronics.com.mx/vendor/jquery-easing/jquery.easing.min.js',
-  'https://domotica.jamrelectronics.com.mx/js/sb-admin-2.min.js',
-  'https://domotica.jamrelectronics.com.mx/socket.io/socket.io.js',
+  'https://agua.jamrelectronics.com.mx/',
+  'https://agua.jamrelectronics.com.mx/vendor/fontawesome-free/css/all.min.css',
+  'https://agua.jamrelectronics.com.mx/css/sb-admin-2.css',
+  'https://agua.jamrelectronics.com.mx/js/app.js',
+  'https://agua.jamrelectronics.com.mx/js/bundle.js',
+  'https://agua.jamrelectronics.com.mx/vendor/jquery/jquery.min.js',
+  'https://agua.jamrelectronics.com.mx/vendor/bootstrap/js/bootstrap.bundle.min.js',
+  'https://agua.jamrelectronics.com.mx/vendor/jquery-easing/jquery.easing.min.js',
+  'https://agua.jamrelectronics.com.mx/js/sb-admin-2.min.js',
+  'https://agua.jamrelectronics.com.mx/socket.io/socket.io.js',
   'https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i',
   'https://i.ibb.co/G3vVtHX/logo.png',
-  'https://domotica.jamrelectronics.com.mx/vendor/fontawesome-free/webfonts/fa-solid-900.woff2'
+  'https://agua.jamrelectronics.com.mx/vendor/fontawesome-free/webfonts/fa-solid-900.woff2'
 ];
 
 self.addEventListener('install', function(event) {

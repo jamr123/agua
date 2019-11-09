@@ -1,6 +1,6 @@
    {
-    "name": "jamrelctronics domotica",
-    "short_name": "Domotica",
+    "name": "jamrelctronics Agua",
+    "short_name": "Agua",
     "icons": [
       {
         "src": "https://i.ibb.co/G3vVtHX/logo.png",
@@ -17,5 +17,5 @@
     "display": "standalone",
     "background_color": "#00F",
     "theme_color": "#00F",
-    "description": "jamrelctronics app domotica"
+    "description": "jamrelctronics app Agua"
   }
