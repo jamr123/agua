@@ -207,8 +207,7 @@
                               class="form-control"
                               id="role"
                             >
-                              
-                              <option>clienteDomotica</option>
+                            
                               <option>clienteAgua</option>
                             </select>
                           </div>
