@@ -272,7 +272,7 @@
 
 /*controladores*/
 
-
+import cliente from"../controladores/clienteAgua";
 export default {
   name: "ClienteAgua",
   data() {
@@ -303,7 +303,15 @@ export default {
       this.lateral[ruta] = true;
     }
   },
-  computed: {},
+  computed: {
+      internet: function() {
+      if (navigator.onLine) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
   mounted: function() {
   if (navigator.onLine) {
       if (localStorage.getItem("session")) {
@@ -327,11 +335,7 @@ export default {
       }
     }
 
-    if (sessionStorage.getItem("reload")) {
-    } else {
-      sessionStorage.setItem("reload", "reload");
-      location.reload();
-    }
+    
   },
   created: function() {
   
