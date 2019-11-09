@@ -15,32 +15,32 @@
         <hr class="sidebar-divider my-0" />
         <li class="nav-item">
           <a v-on:click="router('dispositivos')" id="sidebarToggleTop" class="nav-link" href="#">
-            <i class="fas fa-eye"></i>
+            <i class="fas fa-desktop"></i>
             <span>Dispositivos</span>
           </a>
         </li>
 
         <hr class="sidebar-divider" />
-        <div class="sidebar-heading">Estadisticas</div>      
+        <div class="sidebar-heading">Estadistica</div>      
         <li class="nav-item">
           <a v-on:click="router('ventas')" id="sidebarToggleTop" class="nav-link" href="#">
-            <i class="fas fa-home"></i>
+            <i class="fas fa-chart-line"></i>
             <span>Ventas</span>
           </a>
         </li>
 
       
         <hr class="sidebar-divider" />
-        <div class="sidebar-heading">Config</div>
+        <div class="sidebar-heading">Configuracion</div>
         <li class="nav-item">
 
           <a v-on:click="router('variables')" id="sidebarToggleTop" class="nav-link" href="#">
-            <i class="fa fa-cloud-moon"></i>
+            <i class="fa fa-cog"></i>
             <span>Variables</span>
           </a>
 
           <a v-on:click="router('alertas')" id="sidebarToggleTop" class="nav-link" href="#">
-            <i class="fa fa-cloud-moon"></i>
+            <i class="fa fa-exclamation"></i>
             <span>Alertas</span>
           </a>
 
@@ -181,6 +181,7 @@
                   </a>
                 </div>
               </li>
+
             </ul>
           </nav>
          
@@ -287,6 +288,11 @@ export default {
     };
   },
    methods: {
+       salir: function() {
+      localStorage.clear();
+      sessionStorage.clear();
+      location.reload();
+    },
      router: function(ruta) {
       this.lateral={
       dispositivos:true,
