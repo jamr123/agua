@@ -2,7 +2,7 @@
 <div>
   <app-login v-if="rutas.appLogin" ></app-login>
   <app-administrador v-if="rutas.appAdministrador"></app-administrador>
-  <app-cliente-domotica v-if="rutas.clienteDomotica"></app-cliente-domotica>
+  <app-cliente-agua v-if="rutas.clienteAgua"></app-cliente-agua>
   
 </div>
 
@@ -11,7 +11,8 @@
 <script>
 import login from "./login.vue"
 import administrador from "./administrador.vue";
-import clienteDomotica from "./clienteDomotica.vue";
+import clienteAdmin from "./clienteAdmin.vue";
+
 export default {
   name: "Api",
   data() {
@@ -19,7 +20,7 @@ export default {
       rutas: {
         appLogin: false,
         appAdministrador: false,
-        clienteDomotica:false,
+        clienteAgua:false,
       }
     };
   },
@@ -32,7 +33,7 @@ export default {
        this.rutas = {
         appLogin: false,
         appAdministrador: false,
-        clienteDomotica:false,
+        clienteAgua:false,
       };
 
       this.rutas[ruta] = true;
@@ -53,7 +54,7 @@ export default {
   components: {
     'app-login':login,
     'app-administrador':administrador,
-    'app-cliente-domotica':clienteDomotica,
+    'app-cliente-agua':clienteAdmin,
   }
 };
 </script>
