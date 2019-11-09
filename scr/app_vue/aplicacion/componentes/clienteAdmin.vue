@@ -287,10 +287,10 @@
 /*controladores*/
 
 import cliente from"../controladores/clienteAgua";
-import dispositivos from "";
-import ventas from "";
-import variables from "";
-import alertas from "";
+import dispositivos from "./dispositivos.vue";
+import ventas from "./ventas.vue";
+import variables from "./variables.vue";
+import alertas from "./alertas.vue";
 
 
 export default {
