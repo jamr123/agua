@@ -315,7 +315,7 @@ export default {
     },
      router: function(ruta) {
       this.lateral={
-      dispositivos:true,
+      dispositivos:false,
       ventas:false,
       variables:false,
       alertas:false
