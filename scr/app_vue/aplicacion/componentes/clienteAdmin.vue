@@ -16,7 +16,9 @@
         <li class="nav-item">
           <a id="sidebarToggleTop" class="nav-link" href="#">
            
-            <span>{{nombre}}</span>
+            <center>
+                <span>{{nombre}}</span>
+            </center>
           </a>
         </li>
         
