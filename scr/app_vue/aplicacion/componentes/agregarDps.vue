@@ -44,6 +44,19 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label for="role">Activacion:</label>
+                    <select
+                        v-model="docDps.act"
+                        type="number"
+                        class="form-control"
+                        id="role"
+                    >
+                        <option>Activo</option>
+                        <option>Bloqueado</option>
+                    </select>
+                </div>
+
               </form>
               <hr class="sidebar-divider" />
             </div>
@@ -84,20 +97,23 @@ export default {
         docDps:{
         usuario:"",
         id:"",
-        tipo:""
+        tipo:"",
+        act:""
         }
 
     };
   },
   methods: {
       agregardps: function() {
-      if (this.docDps.usuario && this.docDps.id && this.docDps.tipo) {
+      if (this.docDps.usuario && this.docDps.id && this.docDps.tipo && this.docDps.act) {
        
 
        adminCtl
        .agregarDps({token:localStorage.getItem("session"),data:this.docDps})
-       .then()
-       .catch();
+       .then(res=>{
+         console.log(res.mensaje);
+         this.$parent.$emit("listenerMsg",res.mensaje );
+       });
 
         
       } else {

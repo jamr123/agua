@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt-nodejs");
 const servicio = require("../servicios/servicios");
 const config = require("../config");
 const moment = require("moment");
+const dps=require("../modelos/dps");
 
 function dpslog(req, res) {
     var LOGIN=JSON.parse(req.body.data)
@@ -57,9 +58,6 @@ function dpslog(req, res) {
 
 function agregar(req,res){
 
-    console.log(req.body);
-
-
     if (req.body.token != null && req.body.token != undefined) {
         const payload = servicio.decodeTokenUsuario(req.body.token);
         if (payload != undefined) {
@@ -74,7 +72,9 @@ function agregar(req,res){
 
             } else {
 
-
+                if(req.body.token.tipo=="vending1"){
+                    agregarVending1(req,res);
+                }
 
 
 
@@ -109,6 +109,50 @@ function modificar(){
 
 function eliminar(){
 
+
+}
+
+
+function agregarVending1(req,res){
+   dpss=dps.Vending1;
+
+    dpss.findOne({id:req.body.data.id},(err,respuesta)=>{
+
+        if (respuesta != null) {
+
+            res.status(200).send({
+                estado: "OK",
+                mensaje: `Dispositivo ${req.body.data.id} ya existe registrado en el sistema`
+
+            });
+
+        } else {
+             
+            const dpsA=new dpss({
+
+                usuario:req.body.data.usuario,
+                id:req.body.data.id,
+                tipo:req.body.data.tipo,
+                act:req.body.data.act
+            });
+
+            userApp.save((err) => {
+                if (err) console.log(`administrador error ${err}`);
+
+                res.status(200).send({
+                    estado: "OK",
+                    mensaje: `Dispositivo ${req.body.data.id} registrado correctamente`,
+
+                });
+
+
+            });
+
+
+         
+        }
+
+    });
 
 }
 
