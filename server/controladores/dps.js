@@ -181,7 +181,7 @@ function eliminar(req,res){
                 });
 
             } else {
-
+              
                 dpss.findOne({
                     id: req.query.data
                 }, (err, respuesta) => {
@@ -200,12 +200,12 @@ function eliminar(req,res){
                     } else {
                         
 
-                        dpss.deleteOne({usuario:req.query.data}, function (err) {
+                        dpss.deleteOne({id:req.query.data}, function (err) {
                             if (err) console.log(err);
                            
                             res.status(200).send({
                                 estado: "OK",
-                                mensaje: `El Dps ${req.query.data} No Existe`,
+                                mensaje: `El Dps ${req.query.data} Ha Sido Eliminado`,
     
                             });
 
