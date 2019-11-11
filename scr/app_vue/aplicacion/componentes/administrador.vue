@@ -672,7 +672,7 @@ export default {
   created: function() {
     
       this.$on("listenerMsg", data => {
-      this.this.modalMsg = data;
+      this.modalMsg = data;
     });
   },
   components: {
