@@ -101,7 +101,6 @@ export default {
                    
                     if (res.estado == "OK") {
                         resolve(res);
-                        sessionStorage.setItem('nombre', res.nombre);
                     } else {
                         reject(res);
                     }
