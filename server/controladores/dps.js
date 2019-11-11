@@ -102,7 +102,7 @@ function agregar(req,res){
 }
 
 function allDps(req,res){
-
+    dpss=dps.Vending1;
        
     if (req.query.token != null && req.query.token != undefined) {
         const payload = servicio.decodeTokenUsuario(req.query.token);
@@ -118,7 +118,7 @@ function allDps(req,res){
 
             } else {
 
-                dps.find({ }, (err, respuesta) => {
+                dpss.find({ }, (err, respuesta) => {
                   
                     if (err) console.log(`administrador error ${err}`);
 
