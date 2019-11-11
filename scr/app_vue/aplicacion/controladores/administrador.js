@@ -110,6 +110,28 @@ export default {
 
                 });
         });  
+    },
+    getDps(data){
+        return new Promise((resolve, reject) => {
+
+            server.sendServer("get", "getDps", data)
+                .then(res => {
+
+                    if (res.estado == "OK") {
+                        resolve(res.data);
+                    } else {
+
+                        reject(res);
+
+                    }
+
+                })
+                .catch(e => {
+                    console.log(e);
+                })
+
+        });
     }
+
 
 }
