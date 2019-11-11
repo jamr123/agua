@@ -75,7 +75,7 @@
 /*componentes*/
 
 /*controladores*/
-
+import adminCtl from "../controladores/administrador.js";
 export default {
   name: "AgregarDps",
   data() {
@@ -83,12 +83,21 @@ export default {
 
         docDps:{
         usuario:"",
-        id:""
+        id:"",
+        tipo:""
         }
 
     };
   },
-  methods: {},
+  methods: {
+      agregardps: function() {
+      if (this.docDps.usuario && this.docDps.id && this.docDps.tipo) {
+        
+      } else {
+        this.modalMsg = "Existen Campos en Blanco";
+      }
+    }
+  },
   computed: {},
   mounted: function() {},
   created: function() {},
