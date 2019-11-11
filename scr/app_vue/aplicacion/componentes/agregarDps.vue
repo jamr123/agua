@@ -52,7 +52,7 @@
           <div class="row">
             <div class="col-lg-6">
               <button
-                v-on:click="agregarDps"
+                v-on:click="agregardps"
                 class="btn btn-success btn-icon-split float-right"
                 data-toggle="modal"
                 data-target="#mensajeModal"
@@ -98,7 +98,7 @@ export default {
          this.$parent.$emit("listenerMsg","Existen Campos en Blanco" );
 
       }
-      
+
     }
   },
   computed: {},
