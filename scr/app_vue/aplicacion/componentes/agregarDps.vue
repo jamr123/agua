@@ -92,6 +92,13 @@ export default {
   methods: {
       agregardps: function() {
       if (this.docDps.usuario && this.docDps.id && this.docDps.tipo) {
+       
+
+       adminCtl
+       .agregarDps({token:localStorage.getItem("session"),data:this.docDps})
+       .then()
+       .catch();
+
         
       } else {
     

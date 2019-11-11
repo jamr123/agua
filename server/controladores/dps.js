@@ -55,9 +55,69 @@ function dpslog(req, res) {
 }
 
 
+function agregar(req,res){
+
+    console.log(req.body);
+
+
+    if (req.body.token != null && req.body.token != undefined) {
+        const payload = servicio.decodeTokenUsuario(req.body.token);
+        if (payload != undefined) {
+
+            if (moment().unix() > payload.exp) {
+
+                res.status(200).send({
+                    estado: "fail",
+                    mensaje: "fallo de seguridad",
+
+                });
+
+            } else {
+
+
+
+
+
+            }
+
+        } else {
+            res.status(200).send({
+                estado: "fail",
+                mensaje: "fallo de seguridad",
+
+            });
+        }
+
+
+    } else {
+
+        res.status(200).send({
+            estado: "fail",
+            mensaje: "fallo de seguridad",
+
+        });
+    }
+
+
+
+}
+
+function modificar(){
+
+
+}
+
+function eliminar(){
+
+
+}
+
+
+
 
 
 module.exports = {
 
-    dpslog
+    dpslog,
+    agregar
 }

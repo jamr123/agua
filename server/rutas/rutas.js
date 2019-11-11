@@ -32,7 +32,7 @@ api.post('/subscribe',subscribe.subscribe );
 api.delete('/subscribe',subscribe.deleteNot );
 
 api.post('/dps', dps.dpslog);
-
+api.post('/agregardps', dps.agregar);
 
 module.exports = api
 

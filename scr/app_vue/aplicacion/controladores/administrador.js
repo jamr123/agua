@@ -90,6 +90,27 @@ export default {
 
         });
 
+    },
+    agregarDps(data){
+
+        return new Promise((resolve, reject) => {
+
+            server.sendServer("post", "agregardps", data)
+                .then(res => {
+                   
+                   
+                    if (res.estado == "OK") {
+                        resolve(res);
+                        sessionStorage.setItem('nombre', res.nombre);
+                    } else {
+                        reject(res);
+                    }
+                })
+                .catch(e => {
+                    console.log(e);
+
+                });
+        });  
     }
-    
+
 }

@@ -674,6 +674,7 @@ export default {
       this.$on("listenerMsg", data => {
       this.modalMsg = data;
     });
+    
   },
   components: {
     "app-agregarDps":agregardps
