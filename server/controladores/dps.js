@@ -167,7 +167,68 @@ function modificar(){
 
 }
 
-function eliminar(){
+function eliminar(req,res){
+    dpss=dps.Vending1;
+     
+    if (req.query.token != null && req.query.token != undefined) {
+        const payload = servicio.decodeTokenUsuario(req.query.token);
+        if (payload != undefined) {
+
+            if (moment().unix() > payload.exp) {
+                res.status(200).send({
+                    estado: "fail",
+                    mensaje: "fallo de seguridad",
+                });
+
+            } else {
+
+                dpss.findOne({
+                    id: req.query.data
+                }, (err, respuesta) => {
+                    if (err) console.log(`administrador error ${err}`);
+                    
+                    if (respuesta == null) {
+
+                        res.status(200).send({
+                            estado: "OK",
+                            mensaje: `El Dps ${req.query.data} No Existe`,
+
+                        });
+
+
+
+                    } else {
+                        
+
+                        dpss.deleteOne({usuario:req.query.data}, function (err) {
+                            if (err) console.log(err);
+                           
+                            res.status(200).send({
+                                estado: "OK",
+                                mensaje: `El Dps ${req.query.data} No Existe`,
+    
+                            });
+
+                          });                     
+
+                    }
+
+                });
+
+
+            }
+
+
+        } else {
+            res.status(200).send({
+                estado: "fail",
+                mensaje: "fallo de seguridad",
+
+            });
+        }
+    }
+
+
 
 
 }

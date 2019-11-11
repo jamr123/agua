@@ -131,6 +131,27 @@ export default {
                 })
 
         });
+    },
+    eliminarDps(data){
+        return new Promise((resolve,reject)=>{
+
+            server.sendServer("delete","usuarios",data)
+                  .then(res=>{
+                     
+                    if (res.estado == "OK") {
+                        resolve(res);
+                    } else {
+
+                        reject(res);
+
+                    }
+                  })
+                  .catch(e=>{
+                    console.log(e);
+                  });
+
+        });  
+
     }
 
 

@@ -111,7 +111,7 @@ export default {
        adminCtl
        .agregarDps({token:localStorage.getItem("session"),data:this.docDps})
        .then(res=>{
-         console.log(res.mensaje);
+         
          this.$parent.$emit("listenerMsg",res.mensaje );
        });
 
