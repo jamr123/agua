@@ -597,9 +597,16 @@ export default {
       } else {
         this.modalMsg = "El Campo Eliminar Esta En Blanco";
       }
+    },
+    listenerMsg:function(mess){
+
+      this.modalMsg ==mess;
     }
+
   },
   computed: {
+
+
     validForm: function() {
       if (
         this.docUsuario.usuario &&
@@ -642,6 +649,8 @@ export default {
         return false;
       }
     }
+
+
   },
   filters: {},
 
