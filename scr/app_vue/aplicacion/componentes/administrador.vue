@@ -60,17 +60,12 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
+        <div class="sidebar-heading">Dps</div>
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Pagos</div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-
-        <!-- Nav Item - Charts -->
         <li class="nav-item">
-          <a class="nav-link" href="#">
+          <a v-on:click="router('agregarDps')" class="nav-link" href="#">
             <i class="fas fa-dollar-sign"></i>
-            <span>Caja</span>
+            <span>Agregar</span>
           </a>
         </li>
 
@@ -143,6 +138,8 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!--AgregarCliente-->
+
+
             <div v-if="adminRutas.agregar" class="row">
               <div class="col-lg-12">
                 <div class="card shadow mb-4 border-left-primary">
@@ -381,6 +378,12 @@
                 </div>
               </div>
             </div>
+
+
+            <app-agregarDps v-if="adminRutas.agregarDps" ></app-agregarDps>
+
+
+
           </div>
           <!-- /.container-fluid -->
         </div>
@@ -466,7 +469,7 @@
    
 <script>
 import adminCtl from "../controladores/administrador.js";
-
+import agregardps from "../componentes/agregarDps.vue";
 export default {
   name: "Administrador",
   data() {
@@ -491,7 +494,8 @@ export default {
         agregar: true,
         modificar: false,
         eliminar: false,
-        ver: false
+        ver: false,
+        agregarDps:false
       },
       tableUsers: [],
       delUsuario: ""
@@ -554,7 +558,8 @@ export default {
         agregar: false,
         modificar: false,
         eliminar: false,
-        ver: false
+        ver: false,
+        agregarDps:false
       };
 
       this.adminRutas[ruta] = true;
@@ -657,7 +662,9 @@ export default {
     }
   },
   created: function() {},
-  components: {}
+  components: {
+    "app-agregarDps":agregardps
+  }
 };
 </script>
 <style scoped>
