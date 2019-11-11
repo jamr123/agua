@@ -77,6 +77,7 @@ export default {
   name: "VerDps",
   data() {
     return {
+      search:"",
       Dps:[]
     };
   },
