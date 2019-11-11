@@ -135,7 +135,7 @@ export default {
     eliminarDps(data){
         return new Promise((resolve,reject)=>{
 
-            server.sendServer("delete","usuarios",data)
+            server.sendServer("delete","delDps",data)
                   .then(res=>{
                      
                     if (res.estado == "OK") {
