@@ -21,23 +21,25 @@
                   />
                 </div>
 
+                <div class="form-group">
+                  <label for="usuario">Id:</label>
+                  <input
+                    v-model="docDps.id"
+                    type="usuario"
+                    class="form-control"
+                    id="usuario"
+                  />
+                </div>
+
               </form>
               <hr class="sidebar-divider" />
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6">
+              
               <button
-                v-on:click="generarPassword"
-                class="btn btn-primary btn-icon-split float-left"
-              >
-                <span class="icon text-white-50">
-                  <i class="fas fa-asterisk"></i>
-                </span>
-                <span class="text">Password</span>
-              </button>
-              <button
-                v-on:click="agregarUsuario"
+                v-on:click="agregarDps"
                 class="btn btn-success btn-icon-split float-right"
                 data-toggle="modal"
                 data-target="#mensajeModal"
@@ -47,6 +49,7 @@
                 </span>
                 <span class="text">Agregar</span>
               </button>
+
             </div>
           </div>
         </div>
@@ -65,7 +68,8 @@ export default {
   data() {
     return {
         docDps:{
-        usuario:""
+        usuario:"",
+        id:""
         }
     };
   },
