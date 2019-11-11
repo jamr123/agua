@@ -133,12 +133,9 @@
               </li>
             </ul>
           </nav>
-          <!-- End of Topbar -->
-
-          <!-- Begin Page Content -->
+         
           <div class="container-fluid">
-            <!--AgregarCliente-->
-
+            
 
             <div v-if="adminRutas.agregar" class="row">
               <div class="col-lg-12">

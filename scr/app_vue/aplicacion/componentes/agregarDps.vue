@@ -31,13 +31,26 @@
                   />
                 </div>
 
+                <div class="form-group">
+                    <label for="role">Tipo:</label>
+                    <select
+                        v-model="docDps.tipo"
+                        type="number"
+                        class="form-control"
+                        id="role"
+                    >
+                    
+                        <option>vending1</option>
+                    </select>
+                </div>
+
               </form>
               <hr class="sidebar-divider" />
             </div>
           </div>
+
           <div class="row">
             <div class="col-lg-6">
-              
               <button
                 v-on:click="agregarDps"
                 class="btn btn-success btn-icon-split float-right"
@@ -49,9 +62,9 @@
                 </span>
                 <span class="text">Agregar</span>
               </button>
-
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -67,15 +80,16 @@ export default {
   name: "AgregarDps",
   data() {
     return {
+
         docDps:{
         usuario:"",
         id:""
         }
+
     };
   },
-  computed: {},
   methods: {},
-
+  computed: {},
   mounted: function() {},
   created: function() {},
   components: {}

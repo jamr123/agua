@@ -46,7 +46,6 @@ export default {
         });
 
     },
-
     getUsuarios(data) {
 
         return new Promise((resolve, reject) => {
@@ -92,4 +91,5 @@ export default {
         });
 
     }
+    
 }
