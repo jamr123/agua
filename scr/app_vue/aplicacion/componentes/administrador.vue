@@ -597,10 +597,6 @@ export default {
       } else {
         this.modalMsg = "El Campo Eliminar Esta En Blanco";
       }
-    },
-    listenerMsg:function(mess){
-
-      this.modalMsg ==mess;
     }
 
   },
@@ -673,7 +669,12 @@ export default {
       this.role = localStorage.getItem("role");
     }
   },
-  created: function() {},
+  created: function() {
+    
+      this.$on("listenerMsg", data => {
+      this.this.modalMsg = data;
+    });
+  },
   components: {
     "app-agregarDps":agregardps
   }

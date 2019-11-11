@@ -94,9 +94,11 @@ export default {
       if (this.docDps.usuario && this.docDps.id && this.docDps.tipo) {
         
       } else {
-        
-        this.$emit('listenerMsg', "Existen Campos en Blanco")
+    
+         this.$parent.$emit("listenerMsg","Existen Campos en Blanco" );
+
       }
+      
     }
   },
   computed: {},
