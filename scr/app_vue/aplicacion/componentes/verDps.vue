@@ -99,7 +99,7 @@ export default {
   
 
   mounted: function() {
-    adminCtl.getDps()
+    adminCtl.getDps({token:localStorage.getItem("session"),data:"data"})
     .then( res=>{
        this.Dps=res;
     });
