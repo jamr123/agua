@@ -57,7 +57,7 @@ function dpslog(req, res) {
 
 
 function agregar(req,res){
-
+   console.log( req.body.token.tipo);
     if (req.body.token != null && req.body.token != undefined) {
         const payload = servicio.decodeTokenUsuario(req.body.token);
         if (payload != undefined) {
