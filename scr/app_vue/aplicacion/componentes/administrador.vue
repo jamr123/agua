@@ -36,25 +36,25 @@
         <li class="nav-item">
           <a v-on:click="router('agregar')" class="nav-link" href="#">
             <i class="fas fa-fw fa-plus"></i>
-            <span>Agregar</span>
+            <span>Agregar Usuario</span>
           </a>
         </li>
         <li class="nav-item">
           <a v-on:click="router('modificar')" class="nav-link" href="#">
             <i class="fas fa-fw fa-edit"></i>
-            <span>Modificar</span>
+            <span>Modificar Usuario</span>
           </a>
         </li>
         <li class="nav-item">
           <a v-on:click="router('eliminar')" class="nav-link" href="#">
             <i class="fas fa-fw fa-trash"></i>
-            <span>Eliminar</span>
+            <span>Eliminar Usuario</span>
           </a>
         </li>
         <li class="nav-item">
           <a v-on:click="router('ver')" class="nav-link" href="#">
             <i class="fas fa-fw fa-eye"></i>
-            <span>Ver</span>
+            <span>Ver Usuarios</span>
           </a>
         </li>
 
@@ -65,7 +65,14 @@
         <li class="nav-item">
           <a v-on:click="router('agregarDps')" class="nav-link" href="#">
             <i class="fas fa-microchip"></i>
-            <span>Agregar</span>
+            <span>Agregar Dps</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a v-on:click="router('verDps')" class="nav-link" href="#">
+            <i class="fas fa-microchip"></i>
+            <span>Ver Dps</span>
           </a>
         </li>
 
