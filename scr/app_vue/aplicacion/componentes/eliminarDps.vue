@@ -64,7 +64,7 @@ export default {
 
        if(this.eliminardps){
         
-        adminCtl.eliminarDps({ token:localStorage.getItem("session"), data: this.eliminardps })
+        adminCtl.eliminarDps({ token:localStorage.getItem("session"), data: this.eliminardps})
         .then(res=>{
           
           this.$parent.$emit("listenerMsg",res.mensaje);
