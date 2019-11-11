@@ -64,7 +64,7 @@
 
         <li class="nav-item">
           <a v-on:click="router('agregarDps')" class="nav-link" href="#">
-            <i class="fas fa-dollar-sign"></i>
+            <i class="fas fa-microchip"></i>
             <span>Agregar</span>
           </a>
         </li>
