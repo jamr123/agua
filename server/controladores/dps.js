@@ -135,7 +135,7 @@ function agregarVending1(req,res){
                 act:req.body.data.act
             });
 
-            userApp.save((err) => {
+            dpsA.save((err) => {
                 if (err) console.log(`administrador error ${err}`);
 
                 res.status(200).send({
