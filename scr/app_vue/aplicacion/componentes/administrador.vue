@@ -68,6 +68,13 @@
             <span>Agregar Dps</span>
           </a>
         </li>
+        
+        <li class="nav-item">
+          <a v-on:click="router('eliminarDps')" class="nav-link" href="#">
+            <i class="fas fa-microchip"></i>
+            <span>Eliminar Dps</span>
+          </a>
+        </li>
 
         <li class="nav-item">
           <a v-on:click="router('verDps')" class="nav-link" href="#">
@@ -384,6 +391,8 @@
             </div>
   
             <app-agregarDps v-if="adminRutas.agregarDps" ></app-agregarDps>
+            <app-verDps v-if="adminRutas.verDps" ></app-verDps>
+            <app-eliminarDps v-if="adminRutas.eliminarDps" ></app-eliminarDps>
 
 
 
@@ -473,6 +482,8 @@
 <script>
 import adminCtl from "../controladores/administrador.js";
 import agregardps from "../componentes/agregarDps.vue";
+import eliminardps from "../componentes/eliminarDps.vue";
+import verdps from "../componentes/verDps.vue"
 export default {
   name: "Administrador",
   data() {
@@ -498,7 +509,9 @@ export default {
         modificar: false,
         eliminar: false,
         ver: false,
-        agregarDps:false
+        agregarDps:false,
+        eliminarDps:false,
+        verDps:false
       },
       tableUsers: [],
       delUsuario: ""
@@ -562,7 +575,9 @@ export default {
         modificar: false,
         eliminar: false,
         ver: false,
-        agregarDps:false
+        agregarDps:false,
+        eliminarDps:false,
+        verDps:false
       };
 
       this.adminRutas[ruta] = true;
@@ -677,7 +692,9 @@ export default {
     
   },
   components: {
-    "app-agregarDps":agregardps
+    "app-agregarDps":agregardps,
+    "app-eliminarDps":eliminardps,
+    "app-verDps":verdps
   }
 };
 </script>

@@ -101,6 +101,67 @@ function agregar(req,res){
 
 }
 
+function allDps(req,res){
+
+       
+    if (req.query.token != null && req.query.token != undefined) {
+        const payload = servicio.decodeTokenUsuario(req.query.token);
+        if (payload != undefined) {
+
+            if (moment().unix() > payload.exp) {
+
+                res.status(200).send({
+                    estado: "fail",
+                    mensaje: "fallo de seguridad",
+
+                });
+
+            } else {
+
+                dps.find({ }, (err, respuesta) => {
+                  
+                    if (err) console.log(`administrador error ${err}`);
+
+                    if (respuesta != null) {
+
+                        res.status(200).send({
+                            estado: "OK",
+                            mensaje: "deviceAll",
+                            data:respuesta
+
+                        });
+
+
+
+                    } else {
+                        res.status(200).send({
+                            estado: "fail",
+                            mensaje: "fallo de seguridad",
+
+                        });
+
+
+                    }
+
+                });
+
+
+            }
+
+
+        } else {
+            res.status(200).send({
+                estado: "fail",
+                mensaje: "fallo de seguridad",
+
+            });
+        }
+    }
+
+
+}
+
+
 function modificar(){
 
 
@@ -157,10 +218,10 @@ function agregarVending1(req,res){
 
 
 
-
-
 module.exports = {
 
     dpslog,
-    agregar
+    agregar,
+    allDps,
+    eliminar
 }
