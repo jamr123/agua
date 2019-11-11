@@ -22,7 +22,7 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <button
-                          v-on:click="eliminardps"
+                          v-on:click="eliminardpss"
                           class="btn btn-danger btn-icon-split float-right"
                           data-toggle="modal"
                           data-target="#mensajeModal"
@@ -60,7 +60,7 @@ export default {
   },
   computed: {},
   methods: {
-    eliminardps:function(){
+    eliminardpss:function(){
 
        if(this.eliminardps){
         
