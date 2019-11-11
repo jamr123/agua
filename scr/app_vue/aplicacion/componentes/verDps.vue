@@ -102,6 +102,7 @@ export default {
     adminCtl.getDps({token:localStorage.getItem("session"),data:"data"})
     .then( res=>{
        this.Dps=res;
+       console.log(res);
     });
   },
   created: function() {},
