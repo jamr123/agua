@@ -263,7 +263,7 @@ dpss=dps.Vending1;
 
                     if (resp) {
                          
-                        dpss.findOne({id:LOGIN.id}, (err, respuesta) => {
+                        dpss.findOne({id:DATA.id}, (err, respuesta) => {
                   
                             if (err) console.log(`administrador error ${err}`);
         
