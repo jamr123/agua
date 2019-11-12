@@ -247,13 +247,11 @@ function dpsReg(req,res){
 
                     if (resp) {
                          
-                        console.log(resp);
+                        console.log(LOGIN.id);
                         
                         res.status(200).send({
                             estado: "OK",
-                            session: servicio.crearTokenUsuario({
-                                usuario:respuesta.usuario
-                            }),
+
                         });
                         
 
