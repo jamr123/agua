@@ -10,53 +10,30 @@
             <div class="col-lg-6">
               <hr class="sidebar-divider" />
               <form>
-
                 <div class="form-group">
                   <label for="usuario">Usuario:</label>
-                  <input
-                    v-model="docDps.usuario"
-                    type="usuario"
-                    class="form-control"
-                    id="usuario"
-                  />
+                  <input v-model="docDps.usuario" type="usuario" class="form-control" id="usuario" />
                 </div>
 
                 <div class="form-group">
                   <label for="usuario">Id:</label>
-                  <input
-                    v-model="docDps.id"
-                    type="usuario"
-                    class="form-control"
-                    id="usuario"
-                  />
+                  <input v-model="docDps.id" type="usuario" class="form-control" id="usuario" />
                 </div>
 
                 <div class="form-group">
-                    <label for="role">Tipo:</label>
-                    <select
-                        v-model="docDps.tipo"
-                        type="number"
-                        class="form-control"
-                        id="role"
-                    >
-                    
-                        <option>vending1</option>
-                    </select>
+                  <label for="role">Tipo:</label>
+                  <select v-model="docDps.tipo" type="number" class="form-control" id="role">
+                    <option>vending1</option>
+                  </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="role">Activacion:</label>
-                    <select
-                        v-model="docDps.act"
-                        type="number"
-                        class="form-control"
-                        id="role"
-                    >
-                        <option>Activo</option>
-                        <option>Bloqueado</option>
-                    </select>
+                  <label for="role">Activacion:</label>
+                  <select v-model="docDps.act" type="number" class="form-control" id="role">
+                    <option>Activo</option>
+                    <option>Bloqueado</option>
+                  </select>
                 </div>
-
               </form>
               <hr class="sidebar-divider" />
             </div>
@@ -77,7 +54,6 @@
               </button>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -93,35 +69,39 @@ export default {
   name: "AgregarDps",
   data() {
     return {
-
-        docDps:{
-        usuario:"",
-        id:"",
-        tipo:"",
-        act:""
-        }
-
+      docDps: {
+        usuario: "",
+        id: "",
+        tipo: "",
+        act: ""
+      }
     };
   },
   methods: {
-      agregardps: function() {
-      if (this.docDps.usuario && this.docDps.id && this.docDps.tipo && this.docDps.act) {
-       
-
-       adminCtl
-       .agregarDps({token:localStorage.getItem("session"),data:this.docDps})
-       .then(res=>{
-         
-         this.$parent.$emit("listenerMsg",res.mensaje );
-       });
-
-        
+    agregardps: function() {
+      if (
+        this.docDps.usuario &&
+        this.docDps.id &&
+        this.docDps.tipo &&
+        this.docDps.act
+      ) {
+        adminCtl
+          .agregarDps({
+            token: localStorage.getItem("session"),
+            data: this.docDps
+          })
+          .then(res => {
+            this.$parent.$emit("listenerMsg", res.mensaje);
+            this.docDps = {
+              usuario: "",
+              id: "",
+              tipo: "",
+              act: ""
+            };
+          });
       } else {
-    
-         this.$parent.$emit("listenerMsg","Existen Campos en Blanco" );
-
+        this.$parent.$emit("listenerMsg", "Existen Campos en Blanco");
       }
-
     }
   },
   computed: {},
