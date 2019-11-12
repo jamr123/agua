@@ -239,10 +239,10 @@ function dpsReg(req,res){
     if(DATA.tipo=="vending1"){
 
         if(DATA.mode=="login"){
-            logVending1(req,res,DATA)
+            logVending1(res,DATA)
         }
         if(DATA.mode=="venta"){
-            ventaVending1(req,res,DATA)
+            ventaVending1(res,DATA)
         }
 
     }
@@ -250,7 +250,7 @@ function dpsReg(req,res){
 
 }
 
-function logVending1(req,res,DATA){
+function logVending1(res,DATA){
 dpss=dps.Vending1;
     
     loginApp.findOne({
