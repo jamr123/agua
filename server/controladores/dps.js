@@ -331,5 +331,6 @@ module.exports = {
     dpslog,
     agregar,
     allDps,
-    eliminar
+    eliminar,
+    dpsReg
 }
