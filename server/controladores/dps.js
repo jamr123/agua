@@ -234,32 +234,69 @@ function eliminar(req,res){
 }
 
 function dpsReg(req,res){
-    var LOGIN=JSON.parse(req.body.data)
-   
+    var DATA=JSON.parse(req.body.data)
+     
+
+    if(DATA.mode="login"){
+        log(req,res,DATA);
+    }
+
+    if(DATA.mode="venta"){
+        venta(req,res,DATA)
+    }
+
+}
+
+function log(req,res,DATA){
+ 
     
     loginApp.findOne({
-        usuario: LOGIN.usuario
+        usuario: DATA.usuario
     }, (err, respuesta) => {
 
         if (respuesta != null) {
 
-                bcrypt.compare(LOGIN.password, respuesta.password, function (err, resp) {
+                bcrypt.compare(DATA.password, respuesta.password, function (err, resp) {
 
                     if (resp) {
                          
-                        console.log(LOGIN.id);
-                        console.log(LOGIN.usuario);
-                        
-                        res.status(200).send({
-                            estado: "OK",
-
+                        dpss.findOne({id:LOGIN.id}, (err, respuesta) => {
+                  
+                            if (err) console.log(`administrador error ${err}`);
+        
+                            if (respuesta != null) {
+                                console.log(respuesta);
+                                res.status(200).send({
+                                    estado: "OK",
+                                    act:respuesta.act,
+                                    lts1:respuesta.lts1,
+                                    lts2:respuesta.lts2,
+                                    lts3:respuesta.lts3,
+                                    cts1:respuesta.cts1,
+                                    cts2:respuesta.cts2,
+                                    cts3:respuesta.cts3,
+                                });
+        
+        
+                            } else {
+                                res.status(200).send({
+                                    estado: "fail",
+                                    mensaje: "fallo de seguridad",
+        
+                                });
+        
+        
+                            }
+        
                         });
+                      
                         
 
                     } else {
                         res.status(200).send({
                             estado: "fail",
                             mensaje: "Password Incorrecto",
+                            
                         })
                     }
 
@@ -275,10 +312,12 @@ function dpsReg(req,res){
             });
         }
 
-    });
-
+    });   
 }
 
+function venta(req,res,DATA){
+
+}
 
 function agregarVending1(req,res){
    dpss=dps.Vending1;
