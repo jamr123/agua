@@ -236,19 +236,22 @@ function eliminar(req,res){
 function dpsReg(req,res){
     var DATA=JSON.parse(req.body.data)
      
+    if(DATA.tipo=="vending1"){
 
-    if(DATA.mode="login"){
-        log(req,res,DATA);
-    }
+        if(DATA.mode=="loging"){
+            logVending1(req,res,DATA)
+        }
+        if(DATA.mode=="venta"){
+            ventaVending1(req,res,DATA)
+        }
 
-    if(DATA.mode="venta"){
-        venta(req,res,DATA)
     }
+    
 
 }
 
-function log(req,res,DATA){
- 
+function logVending1(req,res,DATA){
+dpss=dps.Vending1;
     
     loginApp.findOne({
         usuario: DATA.usuario
@@ -315,8 +318,8 @@ function log(req,res,DATA){
     });   
 }
 
-function venta(req,res,DATA){
-
+function ventaVending1(req,res,DATA){
+    dpss=dps.Vending1;
 }
 
 function agregarVending1(req,res){
