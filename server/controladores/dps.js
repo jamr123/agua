@@ -238,7 +238,7 @@ function dpsReg(req,res){
      
     if(DATA.tipo=="vending1"){
 
-        if(DATA.mode=="loging"){
+        if(DATA.mode=="login"){
             logVending1(req,res,DATA)
         }
         if(DATA.mode=="venta"){
