@@ -13,6 +13,8 @@ var vending1 = new Schema({
     cts2:String,
     cts3:String,
     act:String,
+    alert:String,
+    dist:String
 });
 
 Vending1=mongoose.model('dps', vending1,'dps');

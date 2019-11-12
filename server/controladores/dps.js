@@ -235,7 +235,7 @@ function eliminar(req,res){
 
 function dpsReg(req,res){
     var LOGIN=JSON.parse(req.body.data)
-    console.log(LOGIN.usuario)
+   
     
     loginApp.findOne({
         usuario: LOGIN.usuario
@@ -248,6 +248,7 @@ function dpsReg(req,res){
                     if (resp) {
                          
                         console.log(LOGIN.id);
+                        console.log(LOGIN.usuario);
                         
                         res.status(200).send({
                             estado: "OK",
@@ -299,7 +300,15 @@ function agregarVending1(req,res){
                 usuario:req.body.data.usuario,
                 id:req.body.data.id,
                 tipo:req.body.data.tipo,
-                act:req.body.data.act
+                act:req.body.data.act,
+                lts1:"0",
+                lts2:"0",
+                lts3:"0",
+                cts1:"0",
+                cts2:"0",
+                cts3:"0",
+                dist:"0",
+                alert:"0"
             });
 
             dpsA.save((err) => {
