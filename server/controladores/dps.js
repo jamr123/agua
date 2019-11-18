@@ -235,9 +235,7 @@ function eliminar(req,res){
 
 function dpsReg(req,res){
     
-    console.log(req.body);
-
-    var DATA=JSON.parse(req.body.data)
+    Data=req.body;
      
     if(DATA.tipo=="vending1"){
 
