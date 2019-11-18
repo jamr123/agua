@@ -321,6 +321,10 @@ dpss=dps.Vending1;
 
 function ventaVending1(req,res,DATA){
     dpss=dps.Vending1;
+
+    res.status(200).send({
+        estado: "OK"
+    });
 }
 
 function agregarVending1(req,res){
