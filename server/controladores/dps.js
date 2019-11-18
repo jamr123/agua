@@ -271,14 +271,14 @@ dpss=dps.Vending1;
                             if (respuesta != null) {
                                 console.log(respuesta);
                                 res.status(200).send({
-                                    estado: "OK",
-                                    act:respuesta.act,
-                                    lts1:respuesta.lts1,
-                                    lts2:respuesta.lts2,
-                                    lts3:respuesta.lts3,
-                                    cts1:respuesta.cts1,
-                                    cts2:respuesta.cts2,
-                                    cts3:respuesta.cts3,
+                                    e: "OK",
+                                    a:respuesta.act,
+                                    l1:respuesta.lts1,
+                                    l2:respuesta.lts2,
+                                    l3:respuesta.lts3,
+                                    c1:respuesta.cts1,
+                                    c2:respuesta.cts2,
+                                    c3:respuesta.cts3,
                                 });
         
         
