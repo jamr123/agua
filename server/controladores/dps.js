@@ -6,6 +6,7 @@ const config = require("../config");
 const moment = require("moment");
 const dps=require("../modelos/dps");
 
+
 function dpslog(req, res) {
     var LOGIN=JSON.parse(req.body.data)
     console.log(LOGIN.usuario)
@@ -164,7 +165,6 @@ function allDps(req,res){
 
 function modificar(){
 
-
 }
 
 function eliminar(req,res){
@@ -319,13 +319,73 @@ dpss=dps.Vending1;
     });   
 }
 
-function ventaVending1(req,res,DATA){
+function ventaVending1(res,DATA){
     dpss=dps.Vending1;
-
-    res.status(200).send({
-        estado: "OK"
-    });
-}
+        console.log(DATA);
+        loginApp.findOne({
+            usuario: DATA.usuario
+        }, (err, respuesta) => {
+    
+            if (respuesta != null) {
+    
+                    bcrypt.compare(DATA.password, respuesta.password, function (err, resp) {
+    
+                        if (resp) {
+                             
+                            dpss.findOne({id:DATA.id}, (err, respuesta) => {
+                      
+                                if (err) console.log(`administrador error ${err}`);
+            
+                                if (respuesta != null) {
+                                    
+                                    res.status(200).send({
+                                        estado: "OK",
+                                        act:respuesta.act,
+                                        l1:respuesta.lts1,
+                                        l2:respuesta.lts2,
+                                        l3:respuesta.lts3,
+                                        c1:respuesta.cts1,
+                                        c2:respuesta.cts2,
+                                        c3:respuesta.cts3,
+                                    });
+            
+            
+                                } else {
+                                    res.status(200).send({
+                                        estado: "fail",
+                                        mensaje: "fallo de seguridad",
+            
+                                    });
+            
+            
+                                }
+            
+                            });
+                          
+                            
+    
+                        } else {
+                            res.status(200).send({
+                                estado: "fail",
+                                mensaje: "Password Incorrecto",
+                                
+                            })
+                        }
+    
+                    });
+                
+            } else {
+    
+    
+                res.status(200).send({
+                    estado: "fail",
+                    mensaje: "Usuario no existe ",
+    
+                });
+            }
+    
+        });   
+    }
 
 function agregarVending1(req,res){
    dpss=dps.Vending1;
@@ -377,7 +437,6 @@ function agregarVending1(req,res){
     });
 
 }
-
 
 
 module.exports = {

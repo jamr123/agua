@@ -31,7 +31,7 @@
                   <label for="role">Activacion:</label>
                   <select v-model="docDps.act" type="number" class="form-control" id="role">
                     <option>Activo</option>
-                    <option>Bloqueado</option>
+                    <option>Bloqueo</option>
                   </select>
                 </div>
               </form>
