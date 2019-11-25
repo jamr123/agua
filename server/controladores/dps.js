@@ -340,13 +340,7 @@ function ventaVending1(res,DATA){
                                     
                                     res.status(200).send({
                                         estado: "OK",
-                                        act:respuesta.act,
-                                        l1:respuesta.lts1,
-                                        l2:respuesta.lts2,
-                                        l3:respuesta.lts3,
-                                        c1:respuesta.cts1,
-                                        c2:respuesta.cts2,
-                                        c3:respuesta.cts3,
+                                        
                                     });
             
             
