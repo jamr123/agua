@@ -1,4 +1,5 @@
 const loginApp = require("../modelos/login.js");
+const ventas = require("../modelos/ventas");
 const usuarioApp = require("../modelos/usuario.js");
 const bcrypt = require("bcrypt-nodejs");
 const servicio = require("../servicios/servicios");
@@ -321,6 +322,7 @@ dpss=dps.Vending1;
 
 function ventaVending1(res,DATA){
     dpss=dps.Vending1;
+    Ventas=ventas.Ventas;
         console.log(DATA);
         loginApp.findOne({
             usuario: DATA.usuario
@@ -336,13 +338,72 @@ function ventaVending1(res,DATA){
                       
                                 if (err) console.log(`administrador error ${err}`);
             
+
                                 if (respuesta != null) {
+                                    var cant=0;
+                                    var pre=0;
+                                    var fecha=0;
+                                    var hora=0;
+                                    var date = new Date(); 
+                                    var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
+                                    date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+                                      
+                                    if(Data.veta=="1"){
+                                      
+                                        console.log(respuesta.lts1);
+                                        console.log(respuesta.cts1);
+                                        console.log(now_utc);
+                                        
+                                     }
+
+                                     if(Data.veta=="2"){
+                                      
+                                        console.log(respuesta.lts2);
+                                        console.log(respuesta.cts2);
+                                     }
+                                     if(Data.veta=="3"){
+                                      
+                                        console.log(respuesta.lts3);
+                                        console.log(respuesta.cts3);
+                                     }
+
+
+
+                                    /*
+                                     const ventaSave=new Ventas({
+
+                                        usuario:req.body.data.usuario,
+                                        id:req.body.data.id,
+                                        cantidad:cant,
+                                        precio:pre,
+                                        fecha:fecha,
+                                        hora:hora,
+
+                                    });
+                        
+                                    dpsA.save((err) => {
+                                        if (err) console.log(`administrador error ${err}`);
+                        
+                                        res.status(200).send({
+                                            estado: "OK",
+                                            mensaje: `Dispositivo ${req.body.data.id} registrado correctamente`,
+                        
+                                        });
+                        
+                        
+                                    });
+
+
+                                    */
+
                                     
                                     res.status(200).send({
                                         estado: "OK",
                                         
                                     });
-            
+                                   
+
+
             
                                 } else {
                                     res.status(200).send({
