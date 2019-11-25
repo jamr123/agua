@@ -348,7 +348,7 @@ function ventaVending1(res,DATA){
                                         console.log(respuesta.lts1);
                                         console.log(respuesta.cts1);
                                         console.log(getFecha());
-                                        
+                                        console.log(getHora());
                                      }
 
                                      if(DATA.venta=="2"){
@@ -489,23 +489,46 @@ function agregarVending1(req,res){
 }
 
 function getFecha(){
-  /*  var date = new Date(); 
-    var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
-    date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
-  */
 
 var today = new Date();
 var dd = today.getUTCDate();
-var mm = today.getUTCMonth() + 1; //January is 0!
-
+var mm = today.getUTCMonth() + 1; 
 var yyyy = today.getUTCFullYear();
+
 if (dd < 10) {
   dd = '0' + dd;
 } 
 if (mm < 10) {
   mm = '0' + mm;
 } 
-return dd + '/' + mm + '/' + yyyy;
+var fecha = dd + '/' + mm + '/' + yyyy;
+return fecha;
+
+}
+
+function getHora(){
+
+ var today = new Date();
+
+ var horas=today.getUTCHours();
+ var minutos= today.getUTCMinutes();
+ var segundos = today.getUTCSeconds();
+
+ if (horas < 10) {
+    horas = '0' + horas;
+  } 
+  if (minutos < 10) {
+    minutos = '0' + minutos;
+  } 
+
+  if (segundos < 10) {
+    segundos = '0' + segundos;
+  }
+
+  var hora=horas +":"+minutos+":"+segundos
+
+  return hora;
+
 
 }
 
