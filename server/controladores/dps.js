@@ -340,19 +340,14 @@ function ventaVending1(res,DATA){
             
 
                                 if (respuesta != null) {
-                                    var cant=0;
-                                    var pre=0;
-                                    var fecha=0;
-                                    var hora=0;
-                                    var date = new Date(); 
-                                    var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
-                                    date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+                                    
+                                    
                                       
                                     if(DATA.venta=="1"){
                                       
                                         console.log(respuesta.lts1);
                                         console.log(respuesta.cts1);
-                                        console.log(now_utc);
+                                        console.log(getFecha());
                                         
                                      }
 
@@ -490,6 +485,27 @@ function agregarVending1(req,res){
         }
 
     });
+
+}
+
+function getFecha(){
+  /*  var date = new Date(); 
+    var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
+    date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+  */
+
+var today = new Date();
+var dd = today.getUTCDate();
+var mm = today.getUTCMonth() + 1; //January is 0!
+
+var yyyy = today.getUTCFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+return dd + '/' + mm + '/' + yyyy;
 
 }
 
