@@ -341,61 +341,66 @@ function ventaVending1(res,DATA){
 
                                 if (respuesta != null) {
                                     
-                                    
+                                    var ventaSave;
                                       
                                     if(DATA.venta=="1"){
                                       
-                                        console.log(respuesta.lts1);
-                                        console.log(respuesta.cts1);
-                                        console.log(getFecha());
-                                        console.log(getHora());
+                                        ventaSave =new Ventas({
+
+                                            usuario:DATA.usuario,
+                                            id:DATA.id,
+                                            cantidad:respuesta.lts1,
+                                            precio:respuesta.cts1,
+                                            fecha:getFecha(),
+                                            hora:getHora(),
+    
+                                        });
                                      }
 
                                      if(DATA.venta=="2"){
                                       
-                                        console.log(respuesta.lts2);
-                                        console.log(respuesta.cts2);
+                                        ventaSave =new Ventas({
+
+                                            usuario:DATA.usuario,
+                                            id:DATA.id,
+                                            cantidad:respuesta.lts2,
+                                            precio:respuesta.cts2,
+                                            fecha:getFecha(),
+                                            hora:getHora(),
+    
+                                        });
                                      }
                                      if(DATA.venta=="3"){
                                       
-                                        console.log(respuesta.lts3);
-                                        console.log(respuesta.cts3);
+                                        ventaSave =new Ventas({
+
+                                            usuario:DATA.usuario,
+                                            id:DATA.id,
+                                            cantidad:respuesta.lts3,
+                                            precio:respuesta.cts3,
+                                            fecha:getFecha(),
+                                            hora:getHora(),
+    
+                                        });
                                      }
-
-
-
-                                    /*
-                                     const ventaSave=new Ventas({
-
-                                        usuario:req.body.data.usuario,
-                                        id:req.body.data.id,
-                                        cantidad:cant,
-                                        precio:pre,
-                                        fecha:fecha,
-                                        hora:hora,
-
-                                    });
-                        
-                                    dpsA.save((err) => {
+                                
+                                                          
+                                     ventaSave.save((err) => {
                                         if (err) console.log(`administrador error ${err}`);
                         
                                         res.status(200).send({
                                             estado: "OK",
-                                            mensaje: `Dispositivo ${req.body.data.id} registrado correctamente`,
-                        
+                                            
                                         });
                         
                         
                                     });
 
 
-                                    */
+                                  
 
                                     
-                                    res.status(200).send({
-                                        estado: "OK",
-                                        
-                                    });
+                                   
                                    
 
 
