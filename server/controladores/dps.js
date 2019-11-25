@@ -348,7 +348,7 @@ function ventaVending1(res,DATA){
                                     var now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),
                                     date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
                                       
-                                    if(Data.veta=="1"){
+                                    if(DATA.veta=="1"){
                                       
                                         console.log(respuesta.lts1);
                                         console.log(respuesta.cts1);
@@ -356,12 +356,12 @@ function ventaVending1(res,DATA){
                                         
                                      }
 
-                                     if(Data.veta=="2"){
+                                     if(DATA.veta=="2"){
                                       
                                         console.log(respuesta.lts2);
                                         console.log(respuesta.cts2);
                                      }
-                                     if(Data.veta=="3"){
+                                     if(DATA.veta=="3"){
                                       
                                         console.log(respuesta.lts3);
                                         console.log(respuesta.cts3);
