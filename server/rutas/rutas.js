@@ -34,7 +34,10 @@ api.delete('/subscribe',subscribe.deleteNot );
 api.post('/dps', dps.dpslog);
 api.post('/agregardps', dps.agregar);
 api.post('/dpsReg', dps.dpsReg);
+
 api.get('/getDps',dps.allDps);
+api.get('/getDpsUser',dps.allDpsUser);
+
 api.delete('/delDps',dps.eliminar);
 
 module.exports = api

@@ -104,7 +104,7 @@ function agregar(req,res){
 }
 
 function allDps(req,res){
-    dpss=dps.Vending1;
+    dpss=dps.Vending;
        
     if (req.query.token != null && req.query.token != undefined) {
         const payload = servicio.decodeTokenUsuario(req.query.token);
@@ -168,7 +168,7 @@ function modificar(){
 }
 
 function eliminar(req,res){
-    dpss=dps.Vending1;
+    dpss=dps.Vending;
      
     if (req.query.token != null && req.query.token != undefined) {
         const payload = servicio.decodeTokenUsuario(req.query.token);
@@ -251,8 +251,72 @@ function dpsReg(req,res){
 
 }
 
+function allDpsUser(req,res){
+
+    dpss=dps.Vending;
+       
+    if (req.query.token != null && req.query.token != undefined) {
+        const payload = servicio.decodeTokenUsuario(req.query.token);
+        if (payload != undefined) {
+
+            if (moment().unix() > payload.exp) {
+
+                res.status(200).send({
+                    estado: "fail",
+                    mensaje: "fallo de seguridad",
+
+                });
+
+            } else {
+
+                dpss.find({usuario:payload.usuario}, (err, respuesta) => {
+                  
+                    if (err) console.log(`administrador error ${err}`);
+
+                    if (respuesta != null) {
+
+                        res.status(200).send({
+                            estado: "OK",
+                            data:respuesta
+
+                        });
+
+
+
+                    } else {
+                        res.status(200).send({
+                            estado: "fail",
+                            mensaje: "fallo de seguridad",
+
+                        });
+
+
+                    }
+
+                });
+
+
+            }
+
+
+        } else {
+            res.status(200).send({
+                estado: "fail",
+                mensaje: "fallo de seguridad",
+
+            });
+        }
+    }
+
+}
+
+
+
+
+
+
 function logVending1(res,DATA){
-dpss=dps.Vending1;
+dpss=dps.Vending;
     
     loginApp.findOne({
         usuario: DATA.usuario
@@ -320,7 +384,7 @@ dpss=dps.Vending1;
 }
 
 function ventaVending1(res,DATA){
-    dpss=dps.Vending1;
+    dpss=dps.Vending;
     Ventas=ventas.Ventas;
         console.log(DATA);
         loginApp.findOne({
@@ -435,7 +499,7 @@ function ventaVending1(res,DATA){
     }
 
 function agregarVending1(req,res){
-   dpss=dps.Vending1;
+   dpss=dps.Vending;
 
     dpss.findOne({id:req.body.data.id},(err,respuesta)=>{
 
@@ -536,5 +600,6 @@ module.exports = {
     agregar,
     allDps,
     eliminar,
-    dpsReg
+    dpsReg,
+    allDpsUser
 }

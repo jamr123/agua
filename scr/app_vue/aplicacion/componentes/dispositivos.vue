@@ -6,8 +6,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">agua001-jamrelectronics</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">activo</div>
+                      <div class="text-xs font-weight-bold text-primary mb-1">agua001-jamrelectronics</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">Activo</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-microchip fa-2x text-gray-300"></i>
@@ -21,12 +21,9 @@
 </template>
    
 <script>
-/*componentes*/
 
 
-
-/*controladores*/
-
+import cliente from"../controladores/clienteAgua";
 
 export default {
   name: "Dispositivos",
@@ -36,13 +33,20 @@ export default {
 
     };
   },
-  computed: {},
+  computed: {
+
+  },
   methods: {
  
   },
 
   mounted: function() {
+   cliente.getAllDps({ token: this.docUsuario.token, data: "admin" })
+   .then(res=>{
+     console.log(res);
 
+   })
+   
   },
   created: function() {
   

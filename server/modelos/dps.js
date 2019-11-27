@@ -17,8 +17,8 @@ var vending1 = new Schema({
     dist:String
 });
 
-Vending1=mongoose.model('dps', vending1,'dps');
+Vending=mongoose.model('dps', vending1,'dps');
 
 module.exports =  {
-    Vending1
+    Vending
 }
