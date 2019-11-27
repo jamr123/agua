@@ -163,7 +163,6 @@ function allDps(req,res){
 
 }
 
-
 function modificar(){
 
 }
@@ -395,13 +394,6 @@ function ventaVending1(res,DATA){
                         
                         
                                     });
-
-
-                                  
-
-                                    
-                                   
-                                   
 
 
             
