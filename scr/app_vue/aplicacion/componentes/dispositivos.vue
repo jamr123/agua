@@ -41,7 +41,7 @@ export default {
   },
 
   mounted: function() {
-   cliente.getAllDps({ token: this.docUsuario.token, data: "admin" })
+   cliente.getAllDps({ token: localStorage.getItem("session"), data: "admin" })
    .then(res=>{
      console.log(res);
 
